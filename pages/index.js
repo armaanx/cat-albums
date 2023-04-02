@@ -31,7 +31,7 @@ export default function Home() {
       <h1 className="p-6 text-3xl font-bold text-black">Cat Albums</h1>
       <div className="z-30 text-center m-auto space-x-2">
         <input
-          className="p-3 border-[3px] rounded-lg border-black"
+          className="p-3 border-[3px] rounded-lg border-black z-30"
           placeholder="Search Albums"
           type="text"
           value={searchTerm}
@@ -44,7 +44,7 @@ export default function Home() {
           }}>
           Clear
         </button>
-        <ul className="">
+        <ul className="z-30">
           {searchResults.map((item) => {
             return (
               <li
@@ -54,8 +54,8 @@ export default function Home() {
                   setSearchTerm("");
                 }}
                 key={item.url}
-                className="font-semibold border-2 border-black w-[300px] m-auto p-3 bg-white hover:bg-stone-200 rounded-md">
-                <div className="grid grid-flow-col grid-cols-3 items-center justify-center cursor-pointer ">
+                className="font-semibold border-2 border-black w-[300px] m-auto p-3 bg-white hover:bg-stone-200 rounded-md z-30">
+                <div className="grid grid-flow-col grid-cols-3 items-center justify-center cursor-pointer z-30 ">
                   <img src={item.image[1]["#text"]} className="" />
                   <p>{item.name}</p>
                   <p>{item.artist}</p>
