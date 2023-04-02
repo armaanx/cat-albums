@@ -1,3 +1,5 @@
+import { MdClear } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
@@ -29,20 +31,21 @@ export default function Home() {
         <title>Cat Albums</title>
       </Head>
       <h1 className="p-6 text-3xl font-bold text-black">Cat Albums</h1>
-      <div className="z-30 text-center m-auto space-x-2">
+      <div className="z-30 text-center m-auto space-x-2 ">
         <input
-          className="p-3 border-[3px] rounded-lg border-black z-30"
+          className="p-3 border-[3px] rounded-lg border-black z-30 align-middle"
           placeholder="Search Albums"
           type="text"
           value={searchTerm}
           onChange={handleChange}
         />
         <button
+          className="align-middle"
           onClick={() => {
             setSearchResults([]);
             setSearchTerm("");
           }}>
-          Clear
+          <MdClear className="text-3xl align-middle" />
         </button>
         <ul className="z-30">
           {searchResults.map((item) => {
@@ -78,7 +81,7 @@ export default function Home() {
         />
       </div>
       <div className="fixed bottom-0 left-0 right-0 m-auto p-3 font-semibold">
-        <span>
+        <span className="space-x-2">
           Made by{" "}
           <a
             className="text-blue-500 underline underline-offset-2"
@@ -87,6 +90,7 @@ export default function Home() {
             rel="noopener noreferrer">
             Armaan
           </a>
+          <FaHeart className="inline-block" />
         </span>
       </div>
     </div>
