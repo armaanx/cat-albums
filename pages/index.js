@@ -1,4 +1,3 @@
-import { CONFIG_FILES } from "next/dist/shared/lib/constants";
 import { useEffect, useState } from "react";
 
 export default function Home() {
