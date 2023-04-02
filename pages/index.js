@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -24,6 +25,9 @@ export default function Home() {
   };
   return (
     <div className="w-screen h-screen text-center flex flex-col items-centre justify-start">
+      <Head>
+        <title>Cat Albums</title>
+      </Head>
       <h1 className="p-6 text-2xl font-bold text-black">Cat Albums</h1>
       <div className="z-30 text-center m-auto space-x-2">
         <input
