@@ -28,7 +28,7 @@ export default function Home() {
       <Head>
         <title>Cat Albums</title>
       </Head>
-      <h1 className="p-6 text-2xl font-bold text-black">Cat Albums</h1>
+      <h1 className="p-6 text-3xl font-bold text-black">Cat Albums</h1>
       <div className="z-30 text-center m-auto space-x-2">
         <input
           className="p-3 border-[3px] rounded-lg border-black"
@@ -76,6 +76,18 @@ export default function Home() {
           src={imgsrc}
           className="absolute top-[265px] right-0 bottom-0 left-[10px] m-auto h-[200px] w-[200px]"
         />
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 m-auto p-3 font-semibold">
+        <span>
+          Made by{" "}
+          <a
+            className="text-blue-500 underline underline-offset-2"
+            href="https://armaan.tech"
+            target="_blank"
+            rel="noopener noreferrer">
+            Armaan
+          </a>
+        </span>
       </div>
     </div>
   );
