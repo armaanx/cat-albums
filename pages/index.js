@@ -26,14 +26,14 @@ export default function Home() {
     setSearchTerm(e.target.value);
   };
   return (
-    <div className="w-screen h-screen text-center flex flex-col items-centre justify-start">
+    <div className="w-screen h-screen text-center flex flex-col items-centre justify-start font-[Montserrat]">
       <Head>
         <title>Cat Albums</title>
       </Head>
-      <h1 className="p-6 text-3xl font-bold text-black">Cat Albums</h1>
+      <h1 className="p-6 text-3xl font-extrabold text-black">Cat Albums</h1>
       <div className="z-30 text-center m-auto space-x-2 ">
         <input
-          className="p-3 border-[3px] rounded-lg border-black z-30 align-middle"
+          className="p-3 border-[3px] rounded-lg border-black z-30 align-middle font-semibold"
           placeholder="Search Albums"
           type="text"
           value={searchTerm}
@@ -80,7 +80,7 @@ export default function Home() {
           className="absolute top-[265px] right-0 bottom-0 left-[10px] m-auto h-[200px] w-[200px]"
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 m-auto p-3 font-semibold">
+      <div className="absolute bottom-0 left-0 right-0 m-auto p-3 ">
         <span className="space-x-2">
           Made by{" "}
           <a
