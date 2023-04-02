@@ -1,16 +1,19 @@
+import { CONFIG_FILES } from "next/dist/shared/lib/constants";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
+  const [imgsrc, setImgSrc] = useState(
+    "https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png"
+  );
   useEffect(() => {
-    if (searchTerm.length <= 0) {
+    if (searchTerm.length <= 1) {
       setSearchResults([]);
     }
     if (searchTerm != "") {
       fetch(
-        `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${searchTerm}&api_key=${process.env.NEXT_PUBLIC_LAST_FM_API_KEY}&limit=5&format=json`
+        `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${searchTerm}&api_key=${process.env.NEXT_PUBLIC_LAST_FM_API_KEY}&limit=4&format=json`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -24,19 +27,38 @@ export default function Home() {
   };
   return (
     <div className="w-screen h-screen text-center flex flex-col items-centre justify-start">
-      <h1 className="p-5 text-2xl font-bold text-black">Cat Albums</h1>
-      <div className="z-30">
+      <h1 className="p-6 text-2xl font-bold text-black">Cat Albums</h1>
+      <div className="z-30 text-center m-auto space-x-2">
         <input
+          className="p-3 border-[3px] rounded-lg border-black"
           placeholder="Search Albums"
-          type="search"
+          type="text"
           value={searchTerm}
           onChange={handleChange}
         />
-        <ul>
+        <button
+          onClick={() => {
+            setSearchResults([]);
+            setSearchTerm("");
+          }}>
+          Clear
+        </button>
+        <ul className="">
           {searchResults.map((item) => {
             return (
-              <li>
-                {item.name} - {item.artist}
+              <li
+                onClick={() => {
+                  setImgSrc(item.image[3]["#text"]);
+                  setSearchResults([]);
+                  setSearchTerm("");
+                }}
+                key={item.url}
+                className="font-semibold border-2 border-black w-[300px] m-auto p-3 bg-white hover:bg-stone-200 rounded-md">
+                <div className="grid grid-flow-col grid-cols-3 items-center justify-center cursor-pointer ">
+                  <img src={item.image[1]["#text"]} className="" />
+                  <p>{item.name}</p>
+                  <p>{item.artist}</p>
+                </div>
               </li>
             );
           })}
@@ -50,7 +72,7 @@ export default function Home() {
       </div>
       <div className="h-[200px] w-[200px] z-10">
         <img
-          src="https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png"
+          src={imgsrc}
           className="absolute top-[165px] right-0 bottom-0 left-[10px] m-auto h-[200px] w-[200px]"
         />
       </div>
