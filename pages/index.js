@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [imgsrc, setImgSrc] = useState(
-    "https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png"
-  );
+  const [imgsrc, setImgSrc] = useState("/select.png");
   useEffect(() => {
     if (searchTerm.length <= 1) {
       setSearchResults([]);
@@ -66,14 +64,14 @@ export default function Home() {
       </div>
       <div className="h-[375px] w-[375px] z-20">
         <img
-          className="absolute top-0 right-0 bottom-0 left-0 m-auto h-[375px] w-[375px]"
+          className="absolute top-[100px] right-0 bottom-0 left-0 m-auto h-[375px] w-[375px]"
           src="/cat.png"
         />
       </div>
       <div className="h-[200px] w-[200px] z-10">
         <img
           src={imgsrc}
-          className="absolute top-[165px] right-0 bottom-0 left-[10px] m-auto h-[200px] w-[200px]"
+          className="absolute top-[265px] right-0 bottom-0 left-[10px] m-auto h-[200px] w-[200px]"
         />
       </div>
     </div>
