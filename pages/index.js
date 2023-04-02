@@ -90,7 +90,7 @@ export default function Home() {
             rel="noopener noreferrer">
             Armaan
           </a>
-          <FaHeart className="inline-block" />
+          <FaHeart className="inline-block align-middle" />
         </span>
       </div>
     </div>
